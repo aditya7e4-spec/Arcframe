@@ -1,8 +1,8 @@
 import "./CvPage.css";
 import Navbar from "./Navbar.jsx";
-import arcframeImage from "./assets/images/Arcframe.avif";
-import concreteCanvasImage from "./assets/images/concrete-canvas.avif";
-import studentManagementImage from "./assets/images/Student-management.avif";
+import arcframeImage from "./assets/Images/Arcframe.avif";
+import concreteCanvasImage from "./assets/Images/concrete-canvas.avif";
+import studentManagementImage from "./assets/Images/Student-management.avif";
 
 const skills = [
   { label: "Frontend", values: ["HTML", "CSS", "JavaScript", "React", "Vite", "Framer", "Zola", "Lovable"] },
