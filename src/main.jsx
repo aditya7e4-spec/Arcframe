@@ -6,6 +6,7 @@ import ServicesPage from './ServicesPage.jsx'
 import ProcessPage from './ProcessPage.jsx'
 import ContactPage from './ContactPage.jsx'
 import PortfolioPage from './PortfolioPage.jsx'
+import CvPage from './CvPage.jsx'
 
 const normalizedPath = window.location.pathname.replace(/\/+$/, '') || '/'
 const pages = {
@@ -15,6 +16,7 @@ const pages = {
   '/portfolio': PortfolioPage,
   '/process': ProcessPage,
   '/contact': ContactPage,
+  '/cv': CvPage,
 }
 
 const Page = pages[normalizedPath] ?? App

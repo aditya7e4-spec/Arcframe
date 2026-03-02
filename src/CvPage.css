@@ -1,0 +1,253 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&family=Space+Grotesk:wght@500;700&display=swap');
+
+:root {
+  --cv-bg: #f6f1e7;
+  --cv-paper: #fffdf8;
+  --cv-ink: #0f2438;
+  --cv-muted: #4f6279;
+  --cv-line: #112540;
+  --cv-accent: #f0633b;
+}
+
+.cv-shell {
+  min-height: 100vh;
+  padding: 1.4rem;
+  color: var(--cv-ink);
+  font-family: 'Manrope', sans-serif;
+  background:
+    radial-gradient(circle at 10% 2%, #ffe7d2 0, #ffe7d2 18%, transparent 43%),
+    radial-gradient(circle at 92% 9%, #dff4f0 0, #dff4f0 16%, transparent 39%),
+    var(--cv-bg);
+}
+
+.cv-backdrop {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.3;
+  background-image: radial-gradient(rgba(17, 37, 64, 0.16) 0.72px, transparent 0.72px);
+  background-size: 9px 9px;
+}
+
+.top-nav,
+.cv-main,
+.cv-footer {
+  position: relative;
+  z-index: 2;
+}
+
+.cv-main,
+.cv-footer {
+  max-width: 1100px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.cv-hero,
+.cv-section,
+.cv-footer {
+  border: 2px solid var(--cv-line);
+  border-radius: 20px;
+  background: var(--cv-paper);
+  box-shadow: 7px 7px 0 rgba(17, 37, 64, 0.9);
+}
+
+.cv-hero {
+  margin-top: 1rem;
+  padding: clamp(1.1rem, 3vw, 2rem);
+}
+
+.cv-kicker {
+  margin: 0;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+  color: var(--cv-muted);
+}
+
+.cv-hero h1 {
+  margin: 0.4rem 0 0;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(2rem, 6vw, 4rem);
+  line-height: 0.95;
+}
+
+.cv-hero h2 {
+  margin: 0.32rem 0 0;
+  font-size: clamp(1rem, 2.4vw, 1.35rem);
+  color: var(--cv-muted);
+}
+
+.cv-tagline {
+  margin: 0.85rem 0 0;
+  max-width: 55ch;
+  line-height: 1.55;
+}
+
+.cv-actions {
+  margin-top: 1rem;
+  display: flex;
+  gap: 0.65rem;
+  flex-wrap: wrap;
+}
+
+.cv-actions a {
+  text-decoration: none;
+  border: 2px solid var(--cv-line);
+  border-radius: 999px;
+  padding: 0.56rem 0.92rem;
+  font-weight: 700;
+  color: var(--cv-ink);
+  background: #fff;
+}
+
+.cv-actions a:first-child {
+  background: #fff;
+}
+
+.cv-actions a:last-child {
+  background: #ffe2d6;
+}
+
+.cv-section {
+  margin-top: 1rem;
+  padding: clamp(1rem, 2.8vw, 1.5rem);
+}
+
+.cv-section h3 {
+  margin: 0;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(1.22rem, 3vw, 1.8rem);
+}
+
+.cv-section p {
+  margin: 0.65rem 0 0;
+  line-height: 1.55;
+  color: var(--cv-muted);
+}
+
+.cv-skill-grid,
+.cv-project-grid {
+  margin-top: 0.9rem;
+  display: grid;
+  gap: 0.7rem;
+}
+
+.cv-skill-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.cv-project-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.cv-skill-card,
+.cv-project-card,
+.cv-experience-card {
+  border: 2px solid rgba(17, 37, 64, 0.75);
+  border-radius: 15px;
+  padding: 0.9rem;
+  background: #fff;
+}
+
+.cv-skill-card h4,
+.cv-project-card h4,
+.cv-experience-card h4 {
+  margin: 0;
+  font-size: 1rem;
+}
+
+.cv-skill-card p,
+.cv-project-card p {
+  margin-top: 0.5rem;
+}
+
+.cv-project-shot {
+  width: 100%;
+  height: 160px;
+  border-radius: 10px;
+  border: 1.5px solid rgba(17, 37, 64, 0.25);
+  display: block;
+  object-fit: cover;
+  background: #f6f2eb;
+}
+
+.cv-stack {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #1f3550;
+}
+
+.cv-links {
+  margin-top: 0.65rem;
+  display: flex;
+  gap: 0.55rem;
+}
+
+.cv-links a {
+  text-decoration: none;
+  border: 1.5px solid var(--cv-line);
+  border-radius: 999px;
+  padding: 0.34rem 0.65rem;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--cv-ink);
+}
+
+.cv-experience-card ul {
+  margin: 0.65rem 0 0;
+  padding-left: 1.1rem;
+  display: grid;
+  gap: 0.4rem;
+}
+
+.cv-two-col {
+  display: grid;
+  gap: 0.8rem;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.cv-two-col p a {
+  color: var(--cv-accent);
+  font-weight: 700;
+}
+
+.cv-footer {
+  margin-top: 1rem;
+  margin-bottom: 0.8rem;
+  padding: 0.9rem 1rem;
+}
+
+.cv-footer p {
+  margin: 0;
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+
+@media (max-width: 980px) {
+  .cv-project-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 700px) {
+  .cv-shell {
+    padding: 0.72rem;
+  }
+
+  .cv-hero,
+  .cv-section,
+  .cv-footer,
+  .cv-skill-card,
+  .cv-project-card,
+  .cv-experience-card {
+    box-shadow: 4px 4px 0 rgba(17, 37, 64, 0.9);
+  }
+
+  .cv-skill-grid,
+  .cv-project-grid,
+  .cv-two-col {
+    grid-template-columns: 1fr;
+  }
+}
