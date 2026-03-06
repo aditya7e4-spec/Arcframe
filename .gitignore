@@ -1,0 +1,9 @@
+# Ignore dependencies
+node_modules/
+
+# Build output
+/dist
+
+# Misc
+.env
+.DS_Store
