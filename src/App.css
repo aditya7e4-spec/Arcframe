@@ -502,6 +502,94 @@ main {
   font-weight: 700;
 }
 
+/* Git Cheatsheet Styles */
+
+.git-commands {
+  margin-top: 1rem;
+  display: grid;
+  gap: 0.9rem;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+
+.git-card {
+  border: 2px solid var(--line);
+  border-radius: 16px;
+  background: var(--paper);
+  box-shadow: 5px 5px 0 rgba(16, 33, 62, 0.9);
+  padding: 1rem;
+}
+
+.git-card-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  margin-bottom: 0.75rem;
+}
+
+.git-step {
+  font-family: 'Syne', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: var(--accent);
+  min-width: 2.5rem;
+}
+
+.git-card h4 {
+  margin: 0;
+  font-size: 0.95rem;
+  flex: 1;
+}
+
+.git-code-block {
+  background: #f5f3f0;
+  border: 1px solid rgba(16, 33, 62, 0.15);
+  border-radius: 8px;
+  padding: 0.7rem;
+  margin: 0.75rem 0;
+  overflow-x: auto;
+}
+
+.git-code-block code {
+  display: block;
+  font-family: 'Menlo', 'Monaco', monospace;
+  font-size: 0.85rem;
+  color: #1a1a1a;
+  margin: 0.3rem 0;
+  word-break: break-word;
+}
+
+.git-code-block code:last-child {
+  margin-bottom: 0;
+}
+
+.git-description {
+  margin: 0.75rem 0 0;
+  color: var(--muted);
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.bonus-grid {
+  margin-top: 1rem;
+  display: grid;
+  gap: 0.9rem;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+.bonus-card {
+  border: 2px solid var(--line);
+  border-radius: 16px;
+  background: linear-gradient(135deg, #fff9ee, #f1f9ff);
+  box-shadow: 5px 5px 0 rgba(16, 33, 62, 0.88);
+  padding: 1rem;
+}
+
+.bonus-card h4 {
+  margin: 0;
+  font-size: 1rem;
+  margin-bottom: 0.75rem;
+}
+
 .footer {
   max-width: 1160px;
   margin: 1rem auto 0;
@@ -567,6 +655,14 @@ main {
   .phase-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
+
+  .git-commands {
+    grid-template-columns: 1fr;
+  }
+
+  .bonus-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 @media (max-width: 860px) {
@@ -601,7 +697,9 @@ main {
   }
 
   .capability-grid,
-  .phase-grid {
+  .phase-grid,
+  .git-commands,
+  .bonus-grid {
     grid-template-columns: 1fr;
   }
 
@@ -611,7 +709,9 @@ main {
   .cta,
   .footer,
   .capability-card,
-  .phase-card {
+  .phase-card,
+  .git-card,
+  .bonus-card {
     box-shadow: 4px 4px 0 rgba(16, 33, 62, 0.92);
   }
 }
@@ -633,5 +733,257 @@ main {
   .project-chip {
     animation: none;
     transition: none;
+  }
+}
+
+/* Figma Guide Page */
+
+.figma-hero h1 {
+  max-width: 14ch;
+}
+
+.figma-grid-cards {
+  margin-top: 1rem;
+  display: grid;
+  gap: 0.9rem;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+
+.figma-card,
+.figma-note,
+.figma-table,
+.figma-list {
+  border: 2px solid var(--line);
+  border-radius: 16px;
+  background: var(--paper);
+  box-shadow: 5px 5px 0 rgba(16, 33, 62, 0.9);
+}
+
+.figma-card,
+.figma-note,
+.figma-table,
+.figma-list {
+  padding: 1rem;
+}
+
+.figma-card h4,
+.figma-note h4 {
+  margin: 0;
+  font-size: 1rem;
+}
+
+.figma-card ul {
+  margin: 0.75rem 0 0;
+  padding-left: 1.1rem;
+  display: grid;
+  gap: 0.45rem;
+}
+
+.figma-card li {
+  color: var(--muted);
+  font-size: 0.9rem;
+  line-height: 1.45;
+}
+
+.figma-card dl {
+  margin: 0.8rem 0 0;
+  display: grid;
+  gap: 0.58rem;
+}
+
+.figma-card dl div {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.75rem;
+  font-size: 0.88rem;
+}
+
+.figma-card dt {
+  color: var(--muted);
+}
+
+.figma-card dd {
+  margin: 0;
+  font-weight: 700;
+}
+
+.figma-note {
+  margin-top: 0.9rem;
+  background: linear-gradient(135deg, #fff9ee, #f1f9ff);
+}
+
+.figma-note p {
+  margin: 0.6rem 0 0;
+  color: var(--muted);
+  font-size: 0.92rem;
+  line-height: 1.5;
+}
+
+.figma-table {
+  margin-top: 1rem;
+  overflow-x: auto;
+}
+
+.figma-table-row {
+  min-width: 720px;
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 0.9fr 1.2fr;
+  gap: 0.6rem;
+  padding: 0.62rem 0;
+  border-bottom: 1px dashed rgba(16, 33, 62, 0.28);
+}
+
+.figma-table-row:last-child {
+  border-bottom: none;
+}
+
+.figma-table-row span {
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+.figma-table-row span:first-child {
+  color: var(--ink);
+  font-weight: 700;
+}
+
+.figma-table-head span {
+  color: var(--ink);
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  font-weight: 800;
+}
+
+.figma-list {
+  margin-top: 1rem;
+  display: grid;
+  gap: 0.65rem;
+}
+
+.figma-list-item {
+  border: 1px solid rgba(16, 33, 62, 0.2);
+  border-radius: 12px;
+  padding: 0.7rem 0.8rem;
+  background: #fff;
+  display: grid;
+  gap: 0.25rem;
+}
+
+.figma-list-item strong {
+  font-size: 0.9rem;
+}
+
+.figma-list-item span {
+  color: var(--muted);
+  font-size: 0.88rem;
+  line-height: 1.45;
+}
+
+.figma-components-grid {
+  margin-top: 1rem;
+  display: grid;
+  gap: 0.9rem;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+.figma-caption {
+  margin: 0.75rem 0 0;
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+.figma-tags {
+  margin-top: 0.75rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.figma-tags span {
+  border: 1.8px solid rgba(16, 33, 62, 0.72);
+  border-radius: 999px;
+  padding: 0.35rem 0.62rem;
+  font-size: 0.8rem;
+  font-weight: 700;
+  background: rgba(255, 212, 198, 0.42);
+}
+
+@media (max-width: 640px) {
+  .figma-card,
+  .figma-note,
+  .figma-table,
+  .figma-list {
+    box-shadow: 4px 4px 0 rgba(16, 33, 62, 0.92);
+  }
+}
+
+.figma-tabs {
+  border: 2px solid var(--line);
+  border-radius: 16px;
+  background: rgba(255, 253, 247, 0.9);
+  padding: 0.35rem;
+  display: flex;
+  gap: 0.35rem;
+  overflow-x: auto;
+}
+
+.figma-tab {
+  border: 1.5px solid transparent;
+  border-radius: 999px;
+  padding: 0.5rem 0.8rem;
+  font: inherit;
+  font-size: 0.84rem;
+  font-weight: 700;
+  background: transparent;
+  color: var(--muted);
+  white-space: nowrap;
+  cursor: pointer;
+  transition: all 0.18s ease;
+}
+
+.figma-tab:hover {
+  border-color: rgba(16, 33, 62, 0.3);
+  background: rgba(16, 33, 62, 0.06);
+}
+
+.figma-tab.is-active {
+  color: var(--ink);
+  border-color: var(--line);
+  background: var(--accent-soft);
+}
+
+.figma-panel {
+  margin-top: 1rem;
+  border: 2px solid var(--line);
+  border-radius: 16px;
+  background: var(--paper);
+  box-shadow: 7px 7px 0 rgba(16, 33, 62, 0.9);
+  padding: 1rem;
+}
+
+.figma-panel .section-head,
+.figma-panel .figma-table,
+.figma-panel .figma-note,
+.figma-panel .figma-components-grid,
+.figma-panel .figma-card {
+  margin-top: 0.9rem;
+}
+
+.figma-panel .section-head {
+  margin-top: 0;
+}
+
+.figma-table-row--auto {
+  min-width: max-content;
+}
+
+.figma-panel .figma-card {
+  box-shadow: none;
+}
+
+@media (max-width: 640px) {
+  .figma-panel {
+    box-shadow: 4px 4px 0 rgba(16, 33, 62, 0.92);
   }
 }
