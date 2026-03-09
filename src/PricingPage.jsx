@@ -1,5 +1,10 @@
 import './PricingPage.css'
 import Navbar from './Navbar.jsx'
+import framerLogo from './assets/ico/Framer.svg'
+import lovableLogo from './assets/ico/lovable-logo-icon.svg'
+import reactLogo from './assets/ico/react.svg'
+import chatbaseLogo from './assets/ico/Chatbase.svg'
+import geminiLogo from './assets/ico/gemini-color.svg'
 
 const websitePackages = [
   {
@@ -7,6 +12,9 @@ const websitePackages = [
     index: '01',
     name: 'Starter',
     tech: 'Framer Template',
+    logo: framerLogo,
+    logoAlt: 'Framer logo',
+    cardClass: 'pricing-card-starter',
     description:
       "Perfect for getting online quickly - ideal if you're just starting out and want a professional presence without the complexity.",
     price: 'Rs 7,500 / one-time setup fee',
@@ -22,6 +30,8 @@ const websitePackages = [
     index: '02',
     name: 'Growth',
     tech: 'Lovable.dev',
+    logo: lovableLogo,
+    logoAlt: 'Lovable logo',
     badge: 'Most Popular',
     description:
       'For businesses ready to invest in a distinctive online identity - a fully custom-designed site built with a modern, no-code platform.',
@@ -38,6 +48,8 @@ const websitePackages = [
     index: '03',
     name: 'Listings Pro',
     tech: 'Zola (Static Code)',
+    monogram: 'ZOLA',
+    monogramSub: 'Static Code',
     description:
       'Designed for businesses with large catalogues - properties, products, or portfolios. Handles scale without breaking a sweat.',
     price: 'Rs 25,000 / one-time fee',
@@ -53,6 +65,8 @@ const websitePackages = [
     index: '04',
     name: 'Premium',
     tech: 'React (Custom Code)',
+    logo: reactLogo,
+    logoAlt: 'React logo',
     description:
       'The most powerful option - a fully hand-coded React site built to industry standards with a marketing-first approach to help your brand stand out.',
     price: 'Rs 45,000 / one-time fee',
@@ -72,6 +86,8 @@ const aiAddOns = [
     index: '05',
     name: 'AI Assistant',
     tech: 'Chatbase',
+    logo: chatbaseLogo,
+    logoAlt: 'Chatbase logo',
     description:
       'Add a smart, always-on AI assistant to your site - handles FAQs, collects leads, and integrates with your social media channels.',
     price: 'Rs 9,500 one-time setup fee',
@@ -88,6 +104,8 @@ const aiAddOns = [
     index: '06',
     name: 'AI Assistant',
     tech: 'API-Powered',
+    logo: geminiLogo,
+    logoAlt: 'API assistant logo',
     description:
       'A leaner, more affordable AI option - great for websites that need smart FAQ support without a large monthly commitment.',
     price: 'Rs 14,500 one-time setup fee',
@@ -123,7 +141,20 @@ function PricingPage() {
           </div>
           <div className="pricing-card-grid">
             {websitePackages.map((pkg) => (
-              <article key={pkg.id} className={`pricing-card ${pkg.badge ? 'pricing-card-featured' : ''}`}>
+              <article
+                key={pkg.id}
+                className={`pricing-card ${pkg.badge ? 'pricing-card-featured' : ''} ${pkg.cardClass ?? ''}`}
+              >
+                {pkg.logo ? (
+                  <div className={`pricing-logo-wrap ${pkg.id === 'starter' ? 'pricing-logo-wrap-light' : ''}`}>
+                    <img className="pricing-logo" src={pkg.logo} alt={pkg.logoAlt} />
+                  </div>
+                ) : (
+                  <div className="pricing-logo-mark" aria-label={`${pkg.monogram} logo`}>
+                    <strong>{pkg.monogram}</strong>
+                    <span>{pkg.monogramSub}</span>
+                  </div>
+                )}
                 <p className="pricing-card-index">{pkg.index}</p>
                 <h3>
                   {pkg.name} <span>- {pkg.tech}</span>
@@ -149,6 +180,7 @@ function PricingPage() {
           <div className="pricing-card-grid pricing-addons-grid">
             {aiAddOns.map((pkg) => (
               <article key={pkg.id} className="pricing-card">
+                <img className="pricing-logo" src={pkg.logo} alt={pkg.logoAlt} />
                 <p className="pricing-card-index">{pkg.index}</p>
                 <h3>
                   {pkg.name} <span>- {pkg.tech}</span>
