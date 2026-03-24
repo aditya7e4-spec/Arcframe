@@ -19,8 +19,8 @@ const capabilities = [
     text: 'Pages are structured around decisive actions, removing friction between curiosity and commitment.',
   },
   {
-    title: 'Component Systems',
-    text: 'Reusable React components keep the brand consistent while letting the site evolve quickly.',
+    title: 'Copy That Sounds Like You',
+    text: 'If your current text feels flat, I can refine it so it sounds clear, genuine, and true to your brand.',
   },
   {
     title: 'Speed and Stability',
@@ -105,7 +105,12 @@ function HomePage() {
             Built for founders and teams who want their digital presence to feel premium, clear, and impossible to
             ignore.
           </p>
-          <div className="hero-actions reveal" style={{ '--delay': '320ms' }}>
+          <p className="hero-pop reveal" style={{ '--delay': '280ms' }}>
+            <span className="hero-pop-label">Also included</span>
+            If you already have the ideas but need help with the wording, I can shape your text so it sounds
+            <strong> natural, genuine, and fully like you.</strong>
+          </p>
+          <div className="hero-actions reveal" style={{ '--delay': '340ms' }}>
             <a className="btn btn-primary" href="/contact">
               Start A Build
             </a>
@@ -219,7 +224,14 @@ function HomePage() {
       </section>
 
       <section className="section cta reveal" id="contact" style={{ '--delay': '180ms' }}>
-        <p>Want a website people remember after one scroll?</p>
+        <div className="cta-copy">
+          <p>Want a website people remember after one scroll?</p>
+          <span className="cta-pop">
+            <em>More than a website</em>
+            Working with Arc/frame means more than buying a website. You are supporting a real ambition being built
+            with care.
+          </span>
+        </div>
         <a href="mailto:aditya7e4@gmail.com">aditya7e4@gmail.com</a>
       </section>
     </main>

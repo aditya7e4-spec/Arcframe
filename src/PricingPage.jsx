@@ -131,7 +131,14 @@ function PricingPage() {
         <section className="pricing-hero">
           <p className="pricing-kicker">Pricing</p>
           <h1>Transparent packages built for your growth stage.</h1>
-          <p className="pricing-lead">No surprises. Pick what fits your goals now and scale when you are ready.</p>
+          <p className="pricing-lead">
+            No surprises. Pick what fits your goals now and scale when you are ready.
+          </p>
+          <p className="pricing-note">
+            <span className="pricing-note-badge">Copy support included</span>
+            Need help with the words too? I can refine your text so it sounds honest, confident, and genuinely like
+            you.
+          </p>
         </section>
 
         <section className="pricing-section">
@@ -206,14 +213,22 @@ function PricingPage() {
         <section className="pricing-bundle">
           <p className="pricing-kicker">Bundle Deal</p>
           <h2>Choose Growth (Lovable.dev) and API-powered AI hosting is included at no extra cost.</h2>
-          <p>All prices in INR. Packages can be customized. Reach out for a free consultation.</p>
+          <p>
+            All prices in INR. Packages can be customized, and I can help improve your website copy so the final site
+            feels more human and more convincing.
+          </p>
+          <p className="pricing-support-note">
+            <span className="pricing-support-tag">Why it matters</span>
+            When you invest here, you are not just paying for a website. You are backing an independent ambition and
+            helping it grow.
+          </p>
           <a href="mailto:aditya7e4@gmail.com">Book Free Consultation</a>
         </section>
       </main>
 
       <footer className="pricing-footer">
         <p>A</p>
-        <span>Designed and built in React.</span>
+        <span>Designed, built, and refined with care for people building something real.</span>
       </footer>
     </div>
   )

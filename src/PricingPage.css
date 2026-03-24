@@ -95,6 +95,33 @@
   color: var(--pricing-muted);
 }
 
+.pricing-note {
+  margin: 0.7rem 0 0;
+  width: fit-content;
+  max-width: 58ch;
+  color: #223551;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  padding: 0.85rem 1rem;
+  border: 2px solid rgba(17, 37, 64, 0.14);
+  border-radius: 18px;
+  background: linear-gradient(135deg, rgba(255, 216, 200, 0.52), rgba(216, 242, 235, 0.78));
+  box-shadow: 5px 5px 0 rgba(17, 37, 64, 0.12);
+}
+
+.pricing-note-badge {
+  display: inline-flex;
+  margin: 0 0 0.45rem;
+  border: 1.8px solid rgba(17, 37, 64, 0.72);
+  border-radius: 999px;
+  padding: 0.28rem 0.62rem;
+  background: #fff;
+  font-size: 0.74rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
 .pricing-section {
   margin-top: 1rem;
   padding: clamp(1rem, 2.8vw, 1.7rem);
@@ -323,6 +350,27 @@
 .pricing-bundle p {
   margin: 0.65rem 0 0;
   color: #1f3550;
+}
+
+.pricing-support-note {
+  max-width: 58ch;
+  display: grid;
+  gap: 0.35rem;
+  padding: 0.9rem 1rem;
+  border: 2px solid rgba(17, 37, 64, 0.16);
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.52);
+  font-weight: 600;
+  box-shadow: 4px 4px 0 rgba(17, 37, 64, 0.12);
+}
+
+.pricing-support-tag {
+  width: fit-content;
+  font-size: 0.76rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--pricing-accent);
 }
 
 .pricing-bundle a {

@@ -24,7 +24,7 @@ function App() {
 
         <footer className="footer reveal" style={{ '--delay': '220ms' }}>
           <p>A</p>
-          <span>Designed and built in React.</span>
+          <span>Designed, built, and written with care. Every project supports a bigger ambition.</span>
         </footer>
       </div>
     </Router>
