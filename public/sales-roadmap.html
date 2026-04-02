@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sales Learning Roadmap</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,700;1,300&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --bg: #0a0a0a;
+    --surface: #111111;
+    --surface2: #181818;
+    --border: #222222;
+    --accent: #e8ff47;
+    --accent2: #ff6b35;
+    --accent3: #47d4ff;
+    --text: #f0ede8;
+    --muted: #666;
+    --muted2: #444;
+  }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    line-height: 1.6;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 999;
+    opacity: 0.6;
+  }
+  header {
+    padding: 80px 40px 60px;
+    max-width: 960px;
+    margin: 0 auto;
+    position: relative;
+  }
+  .phase-counter {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    color: var(--muted);
+    text-transform: uppercase;
+    margin-bottom: 20px;
+  }
+  h1 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(64px, 10vw, 120px);
+    line-height: 0.92;
+    letter-spacing: 0.02em;
+    margin-bottom: 24px;
+  }
+  h1 span.accent { color: var(--accent); }
+  .header-sub {
+    font-size: 15px;
+    color: var(--muted);
+    max-width: 480px;
+    border-left: 2px solid var(--accent);
+    padding-left: 16px;
+    line-height: 1.7;
+  }
+  .phase-nav {
+    display: flex;
+    gap: 2px;
+    padding: 0 40px;
+    max-width: 960px;
+    margin: 0 auto 60px;
+    flex-wrap: wrap;
+  }
+  .phase-nav a {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--muted);
+    text-decoration: none;
+    padding: 8px 16px;
+    border: 1px solid var(--border);
+    background: var(--surface);
+    transition: all 0.2s;
+  }
+  .phase-nav a:hover {
+    color: var(--accent);
+    border-color: var(--accent);
+    background: rgba(232, 255, 71, 0.05);
+  }
+  main {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 0 40px 120px;
+  }
+  .phase { margin-bottom: 80px; position: relative; }
+  .phase-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    margin-bottom: 36px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid var(--border);
+  }
+  .phase-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 72px;
+    line-height: 1;
+    color: var(--muted2);
+    flex-shrink: 0;
+    min-width: 56px;
+  }
+  .phase-meta { flex: 1; }
+  .phase-tag {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border-radius: 2px;
+    display: inline-block;
+    margin-bottom: 10px;
+  }
+  .tag-yellow { background: rgba(232,255,71,0.12); color: var(--accent); }
+  .tag-orange { background: rgba(255,107,53,0.12); color: var(--accent2); }
+  .tag-blue { background: rgba(71,212,255,0.12); color: var(--accent3); }
+  .tag-green { background: rgba(100,255,150,0.12); color: #64ff96; }
+  .phase h2 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(28px, 4vw, 42px);
+    letter-spacing: 0.04em;
+    line-height: 1.1;
+  }
+  .phase-desc {
+    font-size: 13px;
+    color: var(--muted);
+    margin-top: 6px;
+    font-family: 'DM Mono', monospace;
+    letter-spacing: 0.05em;
+  }
+  .section { margin-bottom: 32px; }
+  .section-title {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .section-title::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+  }
+  .card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 12px;
+  }
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    padding: 20px;
+    position: relative;
+    transition: border-color 0.2s, background 0.2s;
+  }
+  .card:hover {
+    border-color: var(--muted2);
+    background: var(--surface2);
+  }
+  .card-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 8px;
+  }
+  .card h3 { font-size: 15px; font-weight: 500; margin-bottom: 8px; color: var(--text); }
+  .card p { font-size: 13px; color: #888; line-height: 1.6; }
+  .card .accent-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+  }
+  .ignore-box {
+    background: rgba(255, 107, 53, 0.05);
+    border: 1px solid rgba(255,107,53,0.2);
+    padding: 20px 24px;
+    margin-top: 16px;
+  }
+  .ignore-box .label {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent2);
+    margin-bottom: 12px;
+  }
+  .ignore-box ul {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .ignore-box li {
+    font-size: 12px;
+    font-family: 'DM Mono', monospace;
+    color: #888;
+    background: rgba(255,107,53,0.07);
+    border: 1px solid rgba(255,107,53,0.15);
+    padding: 4px 12px;
+    text-decoration: line-through;
+    text-decoration-color: rgba(255,107,53,0.4);
+  }
+  .highlight-box {
+    background: rgba(232, 255, 71, 0.04);
+    border: 1px solid rgba(232,255,71,0.2);
+    padding: 20px 24px;
+    margin-bottom: 20px;
+  }
+  .highlight-box .label {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 10px;
+  }
+  .highlight-box p,
+  .highlight-box li {
+    font-size: 14px;
+    color: #bbb;
+    line-height: 1.7;
+  }
+  .highlight-box ul { list-style: none; }
+  .highlight-box li::before { content: '→ '; color: var(--accent); font-family: 'DM Mono', monospace; }
+  .resource-list { display: flex; flex-direction: column; gap: 8px; }
+  .resource-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    padding: 16px 20px;
+    transition: border-color 0.2s;
+  }
+  .resource-item:hover { border-color: var(--muted2); }
+  .resource-type {
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 3px 8px;
+    border-radius: 2px;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .type-book { background: rgba(232,255,71,0.1); color: var(--accent); }
+  .type-yt { background: rgba(255,107,53,0.1); color: var(--accent2); }
+  .resource-info strong { font-size: 14px; font-weight: 500; display: block; margin-bottom: 2px; }
+  .resource-info span { font-size: 12px; color: #777; }
+  .schedule { display: flex; flex-direction: column; gap: 3px; }
+  .schedule-row {
+    display: grid;
+    grid-template-columns: 90px 1fr 80px;
+    gap: 12px;
+    align-items: start;
+    padding: 14px 16px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    transition: all 0.15s;
+  }
+  .schedule-row:hover {
+    background: var(--surface2);
+    border-color: var(--muted2);
+  }
+  .schedule-row.header {
+    background: transparent;
+    border-color: transparent;
+    padding-bottom: 6px;
+  }
+  .schedule-row.header span {
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  .sched-period { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--accent); font-weight: 500; }
+  .sched-task { font-size: 13px; color: #ccc; line-height: 1.5; }
+  .sched-task strong { color: var(--text); font-weight: 500; display: block; }
+  .sched-hours { font-family: 'DM Mono', monospace; font-size: 12px; color: var(--muted); text-align: right; }
+  .drill-list { display: flex; flex-direction: column; gap: 8px; }
+  .drill {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--accent2);
+    padding: 16px 20px;
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+  }
+  .drill-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 28px;
+    color: var(--muted2);
+    line-height: 1;
+    flex-shrink: 0;
+    width: 28px;
+  }
+  .drill-body strong { font-size: 14px; font-weight: 500; display: block; margin-bottom: 4px; }
+  .drill-body p { font-size: 12px; color: #777; line-height: 1.6; }
+  .drill-body .reps {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    color: var(--accent2);
+    margin-top: 8px;
+    letter-spacing: 0.1em;
+  }
+  .feedback-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .feedback-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    padding: 20px;
+  }
+  .feedback-card .fc-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent3);
+    margin-bottom: 10px;
+  }
+  .feedback-card h3 { font-size: 14px; font-weight: 500; margin-bottom: 10px; }
+  .feedback-card ul { list-style: none; }
+  .feedback-card li {
+    font-size: 12px;
+    color: #888;
+    padding: 5px 0;
+    border-bottom: 1px solid var(--border);
+    line-height: 1.5;
+  }
+  .feedback-card li:last-child { border-bottom: none; }
+  .feedback-card li::before { content: '↳ '; color: var(--accent3); }
+  .phase-divider {
+    height: 1px;
+    background: linear-gradient(to right, var(--accent), transparent);
+    margin-bottom: 60px;
+    opacity: 0.3;
+  }
+  footer {
+    border-top: 1px solid var(--border);
+    padding: 40px;
+    max-width: 960px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+  footer span {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    color: var(--muted);
+    text-transform: uppercase;
+  }
+  footer .total {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 22px;
+    color: var(--accent);
+    letter-spacing: 0.05em;
+  }
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  header { animation: fadeUp 0.6s ease both; }
+  .phase { animation: fadeUp 0.6s ease both; }
+  .phase:nth-child(1) { animation-delay: 0.1s; }
+  .phase:nth-child(2) { animation-delay: 0.2s; }
+  .phase:nth-child(3) { animation-delay: 0.3s; }
+  .phase:nth-child(4) { animation-delay: 0.4s; }
+  @media (max-width: 600px) {
+    .feedback-grid { grid-template-columns: 1fr; }
+    .schedule-row { grid-template-columns: 70px 1fr 60px; }
+    header, main, .phase-nav { padding-left: 20px; padding-right: 20px; }
+    h1 { font-size: 56px; }
+    .phase-num { font-size: 52px; }
+  }
+</style>
+</head>
+<body>
+<header>
+  <div class="phase-counter">Sales Mastery Roadmap · Self-Taught Edition</div>
+  <h1>LEARN<br><span class="accent">SALES.</span></h1>
+  <p class="header-sub">A zero-fluff, 4-phase system to go from cold-calling anxiety to closing deals — built for someone already in the field, learning by doing.</p>
+</header>
+<nav class="phase-nav">
+  <a href="#phase1">01 Deconstruction</a>
+  <a href="#phase2">02 System Setup</a>
+  <a href="#phase3">03 First 20 Hours</a>
+  <a href="#phase4">04 Deliberate Practice</a>
+</nav>
+<main>
+  <section class="phase" id="phase1">
+    <div class="phase-header">
+      <div class="phase-num">01</div>
+      <div class="phase-meta">
+        <div class="phase-tag tag-yellow">The Blueprint</div>
+        <h2>DECONSTRUCTION</h2>
+        <div class="phase-desc">Break the skill → find the leverage point</div>
+      </div>
+    </div>
+    <div class="section">
+      <div class="section-title">Core micro-skills of sales</div>
+      <div class="card-grid">
+        <div class="card"><div class="accent-dot" style="background: var(--accent)"></div><div class="card-label">Skill 01 · Critical</div><h3>Problem-First Framing</h3><p>Leading with their pain, not your product. Every word you say must be about them. This is the single highest-leverage habit in sales.</p></div>
+        <div class="card"><div class="accent-dot" style="background: var(--accent)"></div><div class="card-label">Skill 02 · Critical</div><h3>Active Listening & Qualification</h3><p>Asking sharp questions and shutting up. Identifying if the prospect actually has the problem, the budget, and the authority to say yes.</p></div>
+        <div class="card"><div class="accent-dot" style="background: var(--accent)"></div><div class="card-label">Skill 03 · Critical</div><h3>Objection Handling</h3><p>Responding to "not interested / too expensive / I'll think about it" without sounding desperate. Most calls die here.</p></div>
+        <div class="card"><div class="accent-dot" style="background: var(--accent)"></div><div class="card-label">Skill 04 · Critical</div><h3>The Close (Ask for the Next Step)</h3><p>Getting a specific commitment — a meeting, a callback, a yes — rather than leaving on vague terms like "I'll check and call you back."</p></div>
+        <div class="card"><div class="accent-dot" style="background: #aaa"></div><div class="card-label">Skill 05 · Supporting</div><h3>Tonality & Vocal Pacing</h3><p>Sounding calm, confident, and unhurried. Not robotic. Not desperate. The way you say it matters as much as what you say.</p></div>
+        <div class="card"><div class="accent-dot" style="background: #aaa"></div><div class="card-label">Skill 06 · Supporting</div><h3>Follow-Up Discipline</h3><p>Most deals close on the 5th–8th touchpoint. Knowing when and how to follow up without being annoying.</p></div>
+      </div>
+    </div>
+    <div class="section">
+      <div class="section-title">Minimum effective dose — your 20%</div>
+      <div class="highlight-box">
+        <div class="label">Focus only on these four things right now</div>
+        <ul>
+          <li>Opening with a problem statement, not a product pitch ("I noticed your Google listing has no reviews...")</li>
+          <li>Asking one sharp diagnostic question and actually listening to the full answer</li>
+          <li>Having one pre-prepared response to "I'm not interested" that earns 20 more seconds</li>
+          <li>Ending every call with a specific ask: "Can we do a quick 10-minute call Thursday at 5pm?"</li>
+        </ul>
+      </div>
+      <div class="ignore-box">
+        <div class="label">Ignore completely for now</div>
+        <ul>
+          <li>SPIN Selling methodology</li><li>Challenger Sale framework</li><li>Negotiation tactics</li><li>CRM optimization</li><li>Email copywriting</li><li>Sales funnels</li><li>Closing scripts with 12+ steps</li><li>Pricing psychology</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+  <div class="phase-divider"></div>
+  <section class="phase" id="phase2">
+    <div class="phase-header">
+      <div class="phase-num">02</div>
+      <div class="phase-meta">
+        <div class="phase-tag tag-orange">Friction Elimination</div>
+        <h2>SYSTEM SETUP</h2>
+        <div class="phase-desc">Make it impossible not to practice</div>
+      </div>
+    </div>
+    <div class="section">
+      <div class="section-title">Environment design — 3 moves</div>
+      <div class="card-grid">
+        <div class="card"><div class="card-label">Move 01 · Physical</div><h3>Print the Script, Kill the Screen</h3><p>Print your Hinglish cold call script on paper. Keep it beside your phone with a pen to mark objections you hear in the field. No tabs, no scrolling during calls.</p></div>
+        <div class="card"><div class="card-label">Move 02 · Digital</div><h3>One-File Call Log</h3><p>A single Notes or Notepad file: date, business name, what they said, what you said, outcome. Review it before every session. Friction to track = zero.</p></div>
+        <div class="card"><div class="card-label">Move 03 · Ritual</div><h3>Fixed Calling Window</h3><p>Block 10am–12pm daily as untouchable call time. No warm-up browsing before it starts. The constraint removes the "I'll start soon" spiral.</p></div>
+      </div>
+    </div>
+    <div class="section">
+      <div class="section-title">3 resources — no more, no less</div>
+      <div class="resource-list">
+        <div class="resource-item"><span class="resource-type type-yt">YouTube</span><div class="resource-info"><strong>The Futur — Business & Selling for Creatives</strong><span>Chris Do's channel. Freelancer-specific sales framing. Directly applicable to dentist/small biz pitches. Start with the "How to Sell Without Selling" playlist.</span></div></div>
+        <div class="resource-item"><span class="resource-type type-book">Book</span><div class="resource-info"><strong>The Sales Bible — Jeffrey Gitomer</strong><span>Not a methodology book. A collection of punchy, direct principles. Read 10 pages before each calling session. Under ₹400 on Amazon India.</span></div></div>
+        <div class="resource-item"><span class="resource-type type-yt">YouTube</span><div class="resource-info"><strong>Jeremy Miner — NEPQ Sales Method</strong><span>Problem-first, question-based selling that sounds human, not scripted. Watch 2–3 videos on cold call openers. Don't buy the course — the free content is enough for now.</span></div></div>
+      </div>
+    </div>
+  </section>
+  <div class="phase-divider"></div>
+  <section class="phase" id="phase3">
+    <div class="phase-header">
+      <div class="phase-num">03</div>
+      <div class="phase-meta">
+        <div class="phase-tag tag-blue">The Frustration Barrier</div>
+        <h2>FIRST 20 HOURS</h2>
+        <div class="phase-desc">Volume over polish. Get the reps in.</div>
+      </div>
+    </div>
+    <div class="section">
+      <div class="section-title">4-week schedule · ~1.5 hrs/day</div>
+      <div class="schedule">
+        <div class="schedule-row header"><span>Period</span><span>Focus + Drills</span><span>Hours</span></div>
+        <div class="schedule-row"><div class="sched-period">Week 1</div><div class="sched-task"><strong>Script Internalization + Mirror Drill</strong>Read your script aloud 5× every morning. Record one 60-second mock pitch on your phone each day. Don't edit it. Listen back once. Note the single worst moment.</div><div class="sched-hours">~5 hrs</div></div>
+        <div class="schedule-row"><div class="sched-period">Week 2</div><div class="sched-task"><strong>Live Calls — Volume Mode</strong>Make 15 calls/day minimum. Goal is not to convert — goal is to hear 50 real objections and write every single one down. Don't skip calls because "it's not a good time."</div><div class="sched-hours">~5 hrs</div></div>
+        <div class="schedule-row"><div class="sched-period">Week 3</div><div class="sched-task"><strong>Objection Drilling — Isolated Practice</strong>Pick your 3 most common objections from Week 2's log. Write 2 responses to each. Practice those 6 responses 10× each before calls. Then call with only those responses allowed.</div><div class="sched-hours">~5 hrs</div></div>
+        <div class="schedule-row"><div class="sched-period">Week 4</div><div class="sched-task"><strong>Full Cycle Practice — End-to-End</strong>Run complete call cycles: open → diagnose → handle one objection → close for a meeting. Still 10–12 calls/day. Now also attempt to re-engage 3 Week 2 no's with a different opener.</div><div class="sched-hours">~5 hrs</div></div>
+      </div>
+    </div>
+    <div class="section">
+      <div class="section-title">High-volume drills — ugly, fast, effective</div>
+      <div class="drill-list">
+        <div class="drill"><div class="drill-num">1</div><div class="drill-body"><strong>The Rejection Speedrun</strong><p>Set a timer for 30 minutes. Goal: collect 10 rejections. Not 10 conversations — 10 clean "no"s. Reframes rejection as the target, not the failure. Kills call reluctance fast.</p><div class="reps">Daily · Weeks 1–2 · ~30 min</div></div></div>
+        <div class="drill"><div class="drill-num">2</div><div class="drill-body"><strong>The 60-Second Pitch Recording</strong><p>Record yourself pitching a fake dentist prospect on voice memo. No reading — from memory. Listen back same day. Find the 1 weakest line. Rewrite it. Record again tomorrow.</p><div class="reps">Daily · Week 1 · 10 min/day</div></div></div>
+        <div class="drill"><div class="drill-num">3</div><div class="drill-body"><strong>Objection Flash Cards</strong><p>Write each real objection you hear on a paper slip. Shuffle them. Pull one at random and respond out loud — no prep, no pausing. 15 cards in under 10 minutes daily.</p><div class="reps">Daily · Week 3 · 10 min/day</div></div></div>
+        <div class="drill"><div class="drill-num">4</div><div class="drill-body"><strong>The Close-Only Drill</strong><p>After any call that reaches a real conversation (even a soft no), immediately replay the last 30 seconds in your head: Did you ask for something specific? If no — write what you should have said. Out loud.</p><div class="reps">Post-call · All weeks · 2 min each</div></div></div>
+        <div class="drill"><div class="drill-num">5</div><div class="drill-body"><strong>Reframe 3 No's Per Day</strong><p>Pick 3 calls that ended with rejection. Write a one-line alternate opening that might have performed differently. No rumination — just one line, then move on. Builds pattern recognition without killing morale.</p><div class="reps">End of day · Weeks 2–4 · 5 min</div></div></div>
+      </div>
+    </div>
+  </section>
+  <div class="phase-divider"></div>
+  <section class="phase" id="phase4">
+    <div class="phase-header">
+      <div class="phase-num">04</div>
+      <div class="phase-meta">
+        <div class="phase-tag tag-green">After Hour 20</div>
+        <h2>DELIBERATE PRACTICE</h2>
+        <div class="phase-desc">Push past comfort. Close the feedback loop.</div>
+      </div>
+    </div>
+    <div class="section">
+      <div class="section-title">Outside-the-comfort-zone exercises</div>
+      <div class="card-grid">
+        <div class="card"><div class="card-label">Exercise 01 · Difficulty: Hard</div><h3>The Upfront Contract Call</h3><p>At the start of each call, say: "I'm going to ask you two quick questions. If what I offer isn't relevant, I'll tell you honestly and we'll both save time — fair enough?" Forces you to control frame from second one.</p></div>
+        <div class="card"><div class="card-label">Exercise 02 · Difficulty: Hard</div><h3>Reverse the Objection</h3><p>When they say "I'm busy", respond with: "That's exactly why I called — busy usually means your front desk is fielding calls that your website should be handling." Requires deep internalization of their problem.</p></div>
+        <div class="card"><div class="card-label">Exercise 03 · Difficulty: Medium</div><h3>The Price Conversation First</h3><p>In one call per day, bring up cost before they ask. "Before I tell you what we do — budgets matter, so I want to be upfront." Desensitizes you to the money conversation and filters non-buyers fast.</p></div>
+        <div class="card"><div class="card-label">Exercise 04 · Difficulty: Hard</div><h3>Call a Warm No (Week 2 Recontact)</h3><p>Call back someone who rejected you 2 weeks ago with a completely different opening — reference a specific local event or change ("I noticed your competitor on MG Road just launched a new site..."). Tests adaptability.</p></div>
+      </div>
+    </div>
+    <div class="section">
+      <div class="section-title">Fast feedback loops — prevent bad habits</div>
+      <div class="feedback-grid">
+        <div class="feedback-card"><div class="fc-label">Loop 01 · Daily</div><h3>The 3-Question Post-Call Review</h3><ul><li>Did I lead with their problem or mine?</li><li>Did I ask at least one question and actually wait for the full answer?</li><li>Did I ask for a specific next step at the end?</li></ul></div>
+        <div class="feedback-card"><div class="fc-label">Loop 02 · Weekly</div><h3>The Call Log Pattern Audit</h3><ul><li>Which objection killed the most calls this week?</li><li>At what point in the call did most people disengage?</li><li>What's the one line I said that kept someone on the longest?</li></ul></div>
+        <div class="feedback-card"><div class="fc-label">Loop 03 · Bi-Weekly</div><h3>Record a Real Call (With Permission)</h3><ul><li>Use a basic call recorder app (ACR on Android)</li><li>Listen back once — note the moment energy dropped</li><li>Rewrite that section of the script before next session</li></ul></div>
+        <div class="feedback-card"><div class="fc-label">Loop 04 · Monthly</div><h3>External Reality Check</h3><ul><li>Share anonymized call notes with one trusted person</li><li>Ask: "Where would you have hung up?" — not "Was I good?"</li><li>Post one cold call breakdown in a sales community for critique</li></ul></div>
+      </div>
+    </div>
+    <div class="section">
+      <div class="section-title">The honest metric to track</div>
+      <div class="highlight-box">
+        <div class="label">Track this one number, nothing else</div>
+        <p><strong style="color: var(--text)">Conversation Rate</strong> — the % of calls where the prospect speaks for more than 30 seconds.<br><br>Not conversion rate. Not close rate. <em>Conversation rate.</em><br><br>If you can get 1 in 5 people to actually talk, you're in the top 20% of cold callers. Everything else — objections, closes, conversions — is downstream of this. When this number goes up, you're improving. When it stays flat despite volume, something in your opening is broken. Fix the opening first.</p>
+      </div>
+    </div>
+  </section>
+</main>
+<footer>
+  <span>Sales Roadmap · Built for Aditya</span>
+  <span class="total">20 Hours to First Close</span>
+  <span>Jamshedpur Cold Calling Sprint</span>
+</footer>
+</body>
+</html>
